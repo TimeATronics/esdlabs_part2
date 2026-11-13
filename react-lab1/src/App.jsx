@@ -8,6 +8,11 @@ import { START, incrementAt, decrementAt, zeros } from "./matrix.js";
 
 export default function App() {
   const [matrix, setMatrix] = useState(START);
+  useEffect(() => {
+    fetch("/matrix.json")
+      .then((res) => res.json())
+      .then((data) => setMatrix(data));
+  }, []);
   const increment = (row, col) =>
     setMatrix((prev) => incrementAt(prev, row, col));
   return (
