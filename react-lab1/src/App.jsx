@@ -8,10 +8,12 @@ import { START, incrementAt, decrementAt, zeros } from "./matrix.js";
 
 export default function App() {
   const [matrix, setMatrix] = useState(START);
+  const increment = (row, col) =>
+    setMatrix((prev) => incrementAt(prev, row, col));
   return (
     <main className="app">
       <Header />
-      <Matrix matrix={matrix} />
+      <Matrix matrix={matrix} onIncrement={increment} />
     </main>
   );
 }
