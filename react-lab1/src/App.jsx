@@ -15,11 +15,17 @@ export default function App() {
   }, []);
   const increment = (row, col) =>
     setMatrix((prev) => incrementAt(prev, row, col));
+  const decrement = (row, col) =>
+    setMatrix((prev) => decrementAt(prev, row, col));
   return (
     <main className="app">
       <Header />
       <div className="board">
-        <Matrix matrix={matrix} onIncrement={increment} />
+        <Matrix
+          matrix={matrix}
+          onIncrement={increment}
+          onDecrement={decrement}
+        />
         <Stats matrix={matrix} />
       </div>
     </main>

@@ -13,7 +13,7 @@
 // Section 08: each Cell's onClick calls onIncrement with THAT cell's row and column.
 import Cell from "./Cell.jsx";
 
-export default function Matrix({ matrix, onIncrement }) {
+export default function Matrix({ matrix, onIncrement, onDecrement }) {
   return (
     <table className="matrix">
       <tbody>
@@ -26,6 +26,7 @@ export default function Matrix({ matrix, onIncrement }) {
                   col={c}
                   value={value}
                   onClick={() => onIncrement(r, c)}
+                  onDecrement={() => onDecrement(r, c)}
                 />
               </td>
             ))}
